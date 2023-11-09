@@ -11,33 +11,33 @@ The software can be installed using rosinstall files.
 
 Create your workspace:
 ```
-mkdir -p ~/marsha_ws/src
-cd ~/marsha_ws
+mkdir -p ~/replanning_ws/src
+cd ~/replanning_ws
 catkin init
 wstool init src
 ```
 The main dependency of MARSHA is [OpenMORE](https://github.com/JRL-CARI-CNR-UNIBS/OpenMORE.git). You can use its rosinstall file to dowload the required dependencies:
 ```
-cd ~/marsha_ws
+cd ~/replanning_ws
 wget https://raw.githubusercontent.com/JRL-CARI-CNR-UNIBS/OpenMORE/master/OpenMORE.rosinstall
 wstool merge -t src ./OpenMORE.rosinstall
 wstool update -t src
-rosdep install --from-paths src --ignore-src -r -y
 ```
 Download the other dependencies for MARSHA:
 ```
-cd ~/marsha_ws/src
+cd ~/replanning_ws/src
 git clone https://github.com/JRL-CARI-CNR-UNIBS/human_aware_cost_functions.git
 git clone --recurse-submodules https://github.com/JRL-CARI-CNR-UNIBS/thread-pool.git
 ```
 Now, compile the workspace:
 ```
-cd ~/marsha_ws/src
+cd ~/replanning_ws
+rosdep install --from-paths src --ignore-src -r -y
 catkin build -cs
 ```
 And source the workspace:
 ```
-echo "source /home/$USER/marsha_ws/devel/setup.bash" >> ~/.bashrc
+echo "source /home/$USER/replanning_ws/devel/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 ```
 
