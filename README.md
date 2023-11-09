@@ -26,6 +26,7 @@ wstool update -t src
 Download the other dependencies for MARSHA:
 ```
 cd ~/replanning_ws/src
+git clone https://github.com/JRL-CARI-CNR-UNIBS/marsha.git
 git clone https://github.com/JRL-CARI-CNR-UNIBS/human_aware_cost_functions.git
 git clone --recurse-submodules https://github.com/JRL-CARI-CNR-UNIBS/thread-pool.git
 ```
